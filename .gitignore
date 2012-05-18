@@ -10,3 +10,6 @@
 *.lai
 *.la
 *.a
+
+ExampleProject.pro.user
+lib/LBDatabase/src/LBDatabase.pro.user
