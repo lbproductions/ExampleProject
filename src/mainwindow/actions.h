@@ -18,6 +18,7 @@ public:
     explicit Actions(Controller *controller);
 
     LBGui::Action *exampleAction() const;
+    LBGui::Action *checkForUpdatesAction() const;
 
 public slots:
     void updateActions();
@@ -26,6 +27,7 @@ private:
     Controller *m_controller;
 
     LBGui::Action *m_exampleAction;
+    LBGui::Action *m_checkForUpdatesAction;
 
 };
 

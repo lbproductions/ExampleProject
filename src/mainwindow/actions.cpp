@@ -17,12 +17,23 @@ Actions::Actions(Controller *controller) :
     m_exampleAction = new LBGui::Action(this);
     m_exampleAction->setText(tr("&Example..."));
     m_exampleAction->setShortcut(QKeySequence::Open);
-    connect(m_exampleAction, SIGNAL(triggered()), m_controller, SLOT(exampleAction()));
+    connect(m_exampleAction, SIGNAL(triggered()), m_controller, SLOT(example()));
+
+
+    m_checkForUpdatesAction = new LBGui::Action(this);
+    m_checkForUpdatesAction->setText(tr("&Check for updates..."));
+    m_checkForUpdatesAction->setMenuRole(QAction::ApplicationSpecificRole);
+    connect(m_checkForUpdatesAction, SIGNAL(triggered()), m_controller, SLOT(checkForUpdates()));
 }
 
 LBGui::Action *Actions::exampleAction() const
 {
     return m_exampleAction;
+}
+
+LBGui::Action *Actions::checkForUpdatesAction() const
+{
+    return m_checkForUpdatesAction;
 }
 
 void Actions::updateActions()

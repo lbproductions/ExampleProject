@@ -4,6 +4,7 @@
 #include <QObject>
 
 class MainWindow;
+class Updater;
 
 namespace MainWindowNS {
 
@@ -21,7 +22,8 @@ public:
     bool close();
 
 public slots:
-    void exampleAction();
+    void example();
+    void checkForUpdates();
 
     void showWidget(QWidget *widget);
 
@@ -31,6 +33,7 @@ signals:
 private:
     MainWindow *m_mainWindow;
     Actions *m_actions;
+    Updater *m_updater;
 };
 
 } // namespace MainWindowNS

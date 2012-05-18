@@ -56,6 +56,7 @@ void MainWindow::setupMenuBar()
     //add actions to the menu bar
     menuBar()->addAction(tr("&File"), m_controller->actions()->exampleAction());
     menuBar()->addAction(tr("&File/Sub&menu"), m_controller->actions()->exampleAction());
+    menuBar()->addAction(tr("&File"), m_controller->actions()->checkForUpdatesAction());
 
     menuBar()->addMenu(menuBar()->windowMenu());
     menuBar()->addMenu(menuBar()->helpMenu());

@@ -3,8 +3,13 @@ QT       += core gui sql
 TARGET = ExampleProject
 TEMPLATE = app
 
+DEPLOY_DIR = $$OUT_PWD/../deploy
 DESTDIR = $$OUT_PWD/../
 OBJECTS_DIR = $$OUT_PWD/../build/
+MYICON = $$PWD/resources/icon/ApplicationIcon.icns
+APPCASTURL = http://dl.dropbox.com/u/140012/$$TARGET
+
+DEFINES +=  'APPCASTURL=\'\"$$APPCASTURL\"\''
 
 INCLUDEPATH += $$PWD/../lib/LBDatabase/include
 INCLUDEPATH += $$PWD/../lib/LBGui/include
@@ -33,6 +38,7 @@ macx {
     copyFrameworks.commands += rm -Rf $$DESTDIR/$${TARGET}.app/Contents/Frameworks/
     copyFrameworks.commands += $$snc( mkdir -p $$DESTDIR/$${TARGET}.app/Contents/Frameworks/ )
     copyFrameworks.commands += $$snc( cp -R $$PWD/../lib/LBDatabase/frameworks/* $$DESTDIR/$${TARGET}.app/Contents/Frameworks/ )
+    copyFrameworks.commands += $$snc( cp -R $$PWD/../frameworks/* $$DESTDIR/$${TARGET}.app/Contents/Frameworks/ )
 
     copyDylibs.target = dylibs
     copyDylibs.commands += mkdir -p $$DESTDIR/$${TARGET}.app/Contents/MacOS/
@@ -48,6 +54,11 @@ macx {
 
     QMAKE_EXTRA_TARGETS += copyFrameworks copyDylibs
     PRE_TARGETDEPS += frameworks dylibs
+
+    release {
+        QMAKE_POST_LINK += && rm -R $$DESTDIR/deploy && $$PWD/../util/deployment/mac/deploy.sh $$PWD $$OUT_PWD/../ $$DEPLOY_DIR $$MYICON $$TARGET $$APPCASTURL && \
+                             rm -R $$DESTDIR/deploy/Contents
+    }
 }
 
 SOURCES += main.cpp \
@@ -64,11 +75,23 @@ HEADERS  += \
     mainwindow/controller.h \
     mainwindow/sidebar.h \
     misc/logger.h \
-    mainwindow/views/sampleview.h
+    mainwindow/views/sampleview.h \
+    misc/updater.h
 
+OTHER_FILES += \
+    ../util/deployment/mac/deploy.sh
 
-
-
+macx {
+    HEADERS  += \
+        misc/sparkleupdater.h \
+        misc/cocoainitializer.h
+    LIBS += \
+        -framework AppKit \
+        -framework Sparkle
+    OBJECTIVE_SOURCES += \
+        misc/sparkleupdater.mm \
+        misc/cocoainitializer.mm
+}
 
 
 
