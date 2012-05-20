@@ -24,11 +24,15 @@ public:
 public slots:
     void example();
     void checkForUpdates();
+    void showPreferences();
 
     void showWidget(QWidget *widget);
 
 signals:
     void somethingChanged();
+
+private slots:
+    void toggleAutomaticUpdates(bool);
 
 private:
     MainWindow *m_mainWindow;

@@ -7,6 +7,8 @@
 #include <LBGui/mainwindow/sidebar/sidebar.h>
 #include <LBGui/mainwindow/sidebar/sidebarchildcategorie.h>
 #include <LBGui/mainwindow/sidebar/sidebartreeview.h>
+#include <LBGui/preferenceswindow/preferenceswindow.h>
+#include <LBGui/preferenceswindow/updaterpreferences.h>
 #include <LBGui/widgets/backgroundwidget.h>
 #include <LBGui/widgets/tabwidget.h>
 #include <LBGui/widgets/groupbox.h>
@@ -25,6 +27,7 @@
     Q_INIT_RESOURCE(pushbutton); \
     Q_INIT_RESOURCE(listwidget); \
     Q_INIT_RESOURCE(backgroundwidget); \
-    Q_INIT_RESOURCE(treeview)
+    Q_INIT_RESOURCE(treeview); \
+    Q_INIT_RESOURCE(preferenceswindow)
 
 #endif // LBGUI_H

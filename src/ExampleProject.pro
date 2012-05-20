@@ -55,7 +55,7 @@ macx {
     QMAKE_EXTRA_TARGETS += copyFrameworks copyDylibs
     PRE_TARGETDEPS += frameworks dylibs
 
-    release {
+     CONFIG(release, debug|release) {
         QMAKE_POST_LINK += && rm -R $$DESTDIR/deploy && $$PWD/../util/deployment/mac/deploy.sh $$PWD $$OUT_PWD/../ $$DEPLOY_DIR $$MYICON $$TARGET $$APPCASTURL && \
                              rm -R $$DESTDIR/deploy/Contents
     }

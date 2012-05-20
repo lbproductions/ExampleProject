@@ -29,6 +29,11 @@ void SparkleUpdater::checkForUpdatesInBackground()
     [d->updater checkForUpdatesInBackground];
 }
 
+void SparkleUpdater::setAutomaticallyChecksForUpdates(bool check)
+{
+    [d->updater setAutomaticallyChecksForUpdates:check];
+}
+
 void SparkleUpdater::checkForUpdates()
 {
     [d->updater checkForUpdates:d->updater];

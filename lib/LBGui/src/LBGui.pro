@@ -30,7 +30,10 @@ HEADERS += \
     widgets/treeviewheader.h \
     widgets/listeditbuttonswidget.h \
     widgets/backgroundwidget.h \
-    shared/autosavefile.h
+    shared/autosavefile.h \
+    preferenceswindow/preferenceswindow.h \
+    preferenceswindow/updaterpreferences.h \
+    preferenceswindow/preferencespage.h
 
 SOURCES += \
     mainwindow/mainwindow.cpp \
@@ -53,7 +56,10 @@ SOURCES += \
     widgets/treeviewheader.cpp \
     widgets/listeditbuttonswidget.cpp \
     widgets/backgroundwidget.cpp \
-    shared/autosavefile.cpp
+    shared/autosavefile.cpp \
+    preferenceswindow/preferenceswindow.cpp \
+    preferenceswindow/updaterpreferences.cpp \
+    preferenceswindow/preferencespage.cpp
 
 OTHER_FILES += \
     ressources/sidebar/macos_lionmail/stylesheet.css \
@@ -71,7 +77,8 @@ RESOURCES += \
     ressources/pushbutton/pushbutton.qrc \
     ressources/listwidget/listwidget.qrc \
     ressources/treeview/treeview.qrc \
-    ressources/backgroundwidget/backgroundwidget.qrc
+    ressources/backgroundwidget/backgroundwidget.qrc \
+    ressources/preferenceswindow/preferenceswindow.qrc
 
 macx {
     HEADERS += \

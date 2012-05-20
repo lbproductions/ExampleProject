@@ -19,6 +19,7 @@ public:
 
     LBGui::Action *exampleAction() const;
     LBGui::Action *checkForUpdatesAction() const;
+    LBGui::Action *showPreferencesAction() const;
 
 public slots:
     void updateActions();
@@ -28,6 +29,7 @@ private:
 
     LBGui::Action *m_exampleAction;
     LBGui::Action *m_checkForUpdatesAction;
+    LBGui::Action *m_showPreferencesAction;
 
 };
 

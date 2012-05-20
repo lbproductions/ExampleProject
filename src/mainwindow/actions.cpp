@@ -24,6 +24,12 @@ Actions::Actions(Controller *controller) :
     m_checkForUpdatesAction->setText(tr("&Check for updates..."));
     m_checkForUpdatesAction->setMenuRole(QAction::ApplicationSpecificRole);
     connect(m_checkForUpdatesAction, SIGNAL(triggered()), m_controller, SLOT(checkForUpdates()));
+
+
+    m_showPreferencesAction = new LBGui::Action(this);
+    m_showPreferencesAction->setText(tr("&Preferences..."));
+    m_showPreferencesAction->setShortcut(QKeySequence::Preferences);
+    connect(m_showPreferencesAction, SIGNAL(triggered()), m_controller, SLOT(showPreferences()));
 }
 
 LBGui::Action *Actions::exampleAction() const
@@ -34,6 +40,11 @@ LBGui::Action *Actions::exampleAction() const
 LBGui::Action *Actions::checkForUpdatesAction() const
 {
     return m_checkForUpdatesAction;
+}
+
+LBGui::Action *Actions::showPreferencesAction() const
+{
+    return m_showPreferencesAction;
 }
 
 void Actions::updateActions()
