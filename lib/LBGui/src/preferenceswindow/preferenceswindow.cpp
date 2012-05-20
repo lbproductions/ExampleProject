@@ -48,10 +48,12 @@ void PreferencesWindowPrivate::addPage(PreferencesPage *page)
 
 void PreferencesWindowPrivate::setCurrentPage(PreferencesPage *page)
 {
+    Q_Q(PreferencesWindow);
     foreach(PreferencesPage *p, pages) {
         if(p == page) {
             p->action()->setChecked(true);
             centralWidget->setCurrentWidget(p);
+            q->setWindowTitle(page->name());
         }
         else {
             p->action()->setChecked(false);

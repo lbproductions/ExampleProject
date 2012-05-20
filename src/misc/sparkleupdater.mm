@@ -34,6 +34,11 @@ void SparkleUpdater::setAutomaticallyChecksForUpdates(bool check)
     [d->updater setAutomaticallyChecksForUpdates:check];
 }
 
+void SparkleUpdater::setAutomaticallyDownloadsUpdates(bool download)
+{
+    [d->updater setAutomaticallyDownloadsUpdates:download];
+}
+
 void SparkleUpdater::checkForUpdates()
 {
     [d->updater checkForUpdates:d->updater];

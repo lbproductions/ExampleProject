@@ -3,6 +3,7 @@ QT       += core gui sql
 TARGET = ExampleProject
 TEMPLATE = app
 
+VERSION = 0.1
 DEPLOY_DIR = $$OUT_PWD/../deploy
 DESTDIR = $$OUT_PWD/../
 OBJECTS_DIR = $$OUT_PWD/../build/
@@ -67,7 +68,8 @@ SOURCES += main.cpp \
     mainwindow/controller.cpp \
     mainwindow/sidebar.cpp \
     misc/logger.cpp \
-    mainwindow/views/sampleview.cpp
+    mainwindow/views/sampleview.cpp \
+    preferences/updaterpreferences.cpp
 
 HEADERS  += \
     mainwindow/mainwindow.h \
@@ -76,7 +78,8 @@ HEADERS  += \
     mainwindow/sidebar.h \
     misc/logger.h \
     mainwindow/views/sampleview.h \
-    misc/updater.h
+    misc/updater.h \
+    preferences/updaterpreferences.h
 
 OTHER_FILES += \
     ../util/deployment/mac/deploy.sh

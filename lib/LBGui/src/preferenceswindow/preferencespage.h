@@ -17,6 +17,7 @@ public:
     explicit PreferencesPage(PreferencesWindow *parent);
     ~PreferencesPage();
     
+    QString name() const;
     void setName(const QString &name);
     void setIcon(const QIcon &icon);
 

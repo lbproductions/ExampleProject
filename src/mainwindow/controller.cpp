@@ -3,6 +3,8 @@
 #include "actions.h"
 #include "mainwindow.h"
 
+#include "../preferences/updaterpreferences.h"
+
 #ifdef Q_WS_MAC
 #   include "../misc/sparkleupdater.h"
 #elif defined Q_WS_WIN
@@ -29,14 +31,8 @@ Controller::Controller(MainWindow *mainWindow) :
     m_updater = new WinSparkleUpdater("APPCASTURL/AppCast_win.xml");
 #endif
 
-    QSettings settings;
-    bool checksForUpdates = settings.value(LBGui::UpdaterPreferences::AutomaticChecksSetting, QVariant(true)).toBool();
-
-    if (m_updater) {
-        m_updater->setAutomaticallyChecksForUpdates(checksForUpdates);
-        if(checksForUpdates)
-            m_updater->checkForUpdatesInBackground();
-    }
+    if(m_updater)
+        UpdaterPreferences::initializeUpdater(m_updater);
 }
 
 MainWindow *Controller::mainWindow() const
@@ -73,8 +69,7 @@ void Controller::checkForUpdates()
 void Controller::showPreferences()
 {
     LBGui::PreferencesWindow *window = new LBGui::PreferencesWindow;
-    LBGui::UpdaterPreferences *updaterPreferences = new LBGui::UpdaterPreferences(window);
-    connect(updaterPreferences, SIGNAL(automaticChecksToggled(bool)), this, SLOT(toggleAutomaticUpdates(bool)));
+    UpdaterPreferences *updaterPreferences = new UpdaterPreferences(m_updater, window);
     connect(updaterPreferences, SIGNAL(checkForUpdatesRequested()), this, SLOT(checkForUpdates()));
 
     window->addPage(updaterPreferences);
@@ -86,12 +81,6 @@ void Controller::showWidget(QWidget *widget)
 {
     m_mainWindow->setCentralWidget(widget);
     emit somethingChanged();
-}
-
-void Controller::toggleAutomaticUpdates(bool check)
-{
-    if (m_updater)
-        m_updater->setAutomaticallyChecksForUpdates(check);
 }
 
 } // namespace MainWindowNS

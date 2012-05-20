@@ -39,6 +39,12 @@ PreferencesPage::~PreferencesPage()
 {
 }
 
+QString PreferencesPage::name() const
+{
+    Q_D(const PreferencesPage);
+    return d->name;
+}
+
 void PreferencesPage::setName(const QString &name)
 {
     Q_D(PreferencesPage);

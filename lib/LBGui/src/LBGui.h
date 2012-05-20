@@ -8,7 +8,7 @@
 #include <LBGui/mainwindow/sidebar/sidebarchildcategorie.h>
 #include <LBGui/mainwindow/sidebar/sidebartreeview.h>
 #include <LBGui/preferenceswindow/preferenceswindow.h>
-#include <LBGui/preferenceswindow/updaterpreferences.h>
+#include <LBGui/preferenceswindow/preferencespage.h>
 #include <LBGui/widgets/backgroundwidget.h>
 #include <LBGui/widgets/tabwidget.h>
 #include <LBGui/widgets/groupbox.h>

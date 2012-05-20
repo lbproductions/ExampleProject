@@ -31,9 +31,6 @@ public slots:
 signals:
     void somethingChanged();
 
-private slots:
-    void toggleAutomaticUpdates(bool);
-
 private:
     MainWindow *m_mainWindow;
     Actions *m_actions;

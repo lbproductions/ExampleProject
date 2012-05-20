@@ -32,7 +32,6 @@ HEADERS += \
     widgets/backgroundwidget.h \
     shared/autosavefile.h \
     preferenceswindow/preferenceswindow.h \
-    preferenceswindow/updaterpreferences.h \
     preferenceswindow/preferencespage.h
 
 SOURCES += \
@@ -58,7 +57,6 @@ SOURCES += \
     widgets/backgroundwidget.cpp \
     shared/autosavefile.cpp \
     preferenceswindow/preferenceswindow.cpp \
-    preferenceswindow/updaterpreferences.cpp \
     preferenceswindow/preferencespage.cpp
 
 OTHER_FILES += \

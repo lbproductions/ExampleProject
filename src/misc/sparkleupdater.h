@@ -15,6 +15,7 @@ class SparkleUpdater : public Updater
 	virtual void checkForUpdatesInBackground();
 
     void setAutomaticallyChecksForUpdates(bool check);
+    void setAutomaticallyDownloadsUpdates(bool download);
 
     private:
 	class Private;
